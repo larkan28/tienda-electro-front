@@ -1,0 +1,28 @@
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                Categorias
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+                <app-filter-categories/>
+            </div>
+        </div>
+    </div>
+    @if (catalog.filters) {
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    Filtros
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <app-filter-options/>
+                </div>
+            </div>
+        </div>
+    }
+</div>

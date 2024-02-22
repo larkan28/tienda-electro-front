@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Marca",
+        "group": "brand",
+        "options": [
+            { "title": "AMD", "value": "amd" },
+            { "title": "Nvidia", "value": "nvidia" }
+        ],
+        "property": "brand"
+    },
+    {
+        "title": "Memoria",
+        "group": "memory",
+        "options": [
+            { "title": "4GB", "value": "4" },
+            { "title": "6GB", "value": "6" },
+            { "title": "8GB", "value": "8" }
+        ],
+        "property": "memory"
+    },
+    { "title": "Precio minimo", "group": "priceMin", "property": "price", "operation": ">=" },
+    { "title": "Precio maximo", "group": "priceMax", "property": "price", "operation": "<=" }
+]

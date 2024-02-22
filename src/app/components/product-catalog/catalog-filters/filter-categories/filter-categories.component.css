@@ -1,0 +1,8 @@
+.cat-title:hover {
+    color: #2c80ff;
+}
+
+.cat-active {
+    background-color: #CFE2FF;
+    border-right: solid 5px #2c80ff;
+}

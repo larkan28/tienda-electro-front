@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="d-flex justify-content-center align-items-center w-100" style="height: 13em;">
+        <img routerLink="/product/{{product.id}}" class="cursor-pointer h-100" src="assets/imgs/products/{{product.imgs[0]}}">
+    </div>
+    <div class="card-body text-center">
+        <h5 routerLink="/product/{{product.id}}" class="cursor-pointer card-title">{{product.name}}</h5>
+        <div class="d-flex justify-content-center" style="align-items: last baseline;">
+            <div class="m-0 fs-5 text-primary fw-bold">${{productService.getDiscount(product.id)| number : '1.1-1'}}</div>
+
+            @if (product.off > 0) {
+                <div class="fs-6 text-dark ms-2 text-decoration-line-through me-2">${{product.price | number : '1.1-1'}}</div>
+            }
+        </div>
+        
+        @if (product.off > 0) {
+            <div class="position-absolute top-0 end-0 pe-2 pt-1">
+                <span class="badge bg-success">Oferta -{{product.off * 100}}%</span>
+            </div>
+        }
+    </div>
+</div>

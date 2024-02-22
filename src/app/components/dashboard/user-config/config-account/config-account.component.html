@@ -1,0 +1,39 @@
+<form [formGroup]="accountForm" (ngSubmit)="submitAccount()" formValid>
+    <div class="form-floating mb-2">
+        <input type="email" class="form-control" formControlName="email" id="accEmail" placeholder="E-mail" readonly>
+        <label for="accEmail">E-mail</label>
+    </div>
+    <div class="form-floating mb-2">
+        <input formValidInput type="text" class="form-control" formControlName="firstName" id="accFirstName" placeholder="Nombre">
+        <label for="accFirstName">Nombre</label>
+        <form-valid-feedback class="invalid-feedback" control="firstName"/>
+    </div>
+    <div class="form-floating mb-2">
+        <input formValidInput type="text" class="form-control" formControlName="lastName" id="accLastName" placeholder="Apellido">
+        <label for="accLastName">Apellido</label>
+        <form-valid-feedback class="invalid-feedback" control="lastName"/>
+    </div>
+    <div class="row g-2">
+        <div class="col">
+            <div class="form-floating mb-2">
+                <input formValidInput type="password" class="form-control" formControlName="password" id="accPassword" placeholder="Contraseña nueva">
+                <label for="accPassword">Contraseña nueva</label>
+                <form-valid-feedback class="invalid-feedback" control="password"/>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-floating mb-2">
+                <input formValidInput type="password" class="form-control" formControlName="passwordConfirm" id="accPasswordConfirm" placeholder="Confirmar contraseña nueva">
+                <label for="accPasswordConfirm">Confirmar contraseña nueva</label>
+                <form-valid-feedback class="invalid-feedback" control="passwordConfirm"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button type="submit" class="btn btn-success" [disabled]="accountForm.invalid || !accountForm.dirty || submitting">
+            <i class="fa-solid fa-check"></i>
+            Guardar cambios
+        </button>
+    </div>
+</form>

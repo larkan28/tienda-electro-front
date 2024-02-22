@@ -1,0 +1,14 @@
+[
+    {
+        "title": "Marca",
+        "group": "brand",
+        "options": [
+            { "id": 0, "title": "Genius", "value": "genius" },
+            { "id": 1, "title": "Redragon", "value": "redragon" }
+        ],
+        "property": "brand",
+        "operation": "=="
+    },
+    { "title": "Precio minimo", "group": "priceMin", "property": "price", "operation": ">=" },
+    { "title": "Precio maximo", "group": "priceMax", "property": "price", "operation": "<=" }
+]

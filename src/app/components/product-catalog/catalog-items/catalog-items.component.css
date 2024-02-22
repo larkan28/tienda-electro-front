@@ -1,0 +1,9 @@
+.badge i:hover {
+    color: #222222;
+}
+
+@media only screen and (max-width: 768px) {
+    .badges-mb {
+        margin-bottom: 10px;
+    }
+}

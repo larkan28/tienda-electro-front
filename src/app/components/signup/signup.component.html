@@ -1,0 +1,55 @@
+<div class="modal fade text-start" tabindex="-1" id="signupModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Registrar nueva cuenta</h5>
+                <button #closeSignup type="button" class="btn-close" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="signupForm" (ngSubmit)="submitSignup()" formValid>
+                    <div class="mb-3">
+                        <input formValidInput type="text" id="signupFirstName" formControlName="firstName" placeholder="Nombre">
+                        <form-valid-feedback class="invalid-feedback" control="firstName"/>
+                    </div>
+                    <div class="mb-3">
+                        <input formValidInput type="text" id="signupLastName" formControlName="lastName" placeholder="Apellido">
+                        <form-valid-feedback class="invalid-feedback" control="lastName"/>
+                    </div>
+                    <div class="mb-3">
+                        <input formValidInput type="email" id="signupEmail" formControlName="email" placeholder="E-mail">
+                        <form-valid-feedback class="invalid-feedback" control="email"/>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <div class="input-group">
+                                <input formValidInput validate="passwordNotMatch" id="signupPassword" formControlName="password" placeholder="Contraseña" passwordToggle #signupPassword="passwordToggle">
+                                <div class="input-group-text">
+                                    <i passwordToggleIcon [parentToggle]="signupPassword"></i>
+                                </div>
+                                <form-valid-feedback class="invalid-feedback" control="password" [parentErrors]="true"/>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group">
+                                <input formValidInput validate="passwordNotMatch" id="signupPasswordConfirm" formControlName="passwordConfirm" placeholder="Repetir contraseña" passwordToggle #signupPasswordConfirm="passwordToggle">
+                                <div class="input-group-text">
+                                    <i passwordToggleIcon [parentToggle]="signupPasswordConfirm"></i>
+                                </div>
+                                <form-valid-feedback class="invalid-feedback" control="passwordConfirm"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" id="signupConditions" class="form-check-input" formControlName="acceptConditions">
+                        <label for="signupConditions" class="form-check-label">
+                            Acepto los <a href="#">términos y condiciones</a>
+                        </label>
+                    </div>
+                    <div class="d-grid">
+                        <button [disabled]="signupForm.invalid || submitting" type="submit" class="btn btn-primary">Crear cuenta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

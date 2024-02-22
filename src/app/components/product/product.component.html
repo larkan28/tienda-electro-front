@@ -1,0 +1,75 @@
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-6">
+            <swiper-container class="border rounded mb-2" pagination="true" slides-per-view="1" height="500">
+                @for (img of product.imgs; track $index) {
+                    <swiper-slide>
+                        <img class="w-100" src="assets/imgs/products/{{img}}">
+                    </swiper-slide>
+                }
+            </swiper-container>
+        </div>
+        <div class="col-md-6">
+            <div class="fs-4 text-uppercase fw-bold">
+                {{product.name}}
+            </div>
+
+            <nav style="font-size: 14px; --bs-breadcrumb-divider: '>';">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/products">Productos</a></li>
+                    <li class="breadcrumb-item"><a href="/products/{{product.category}}">{{productService.getCategory(product.category).title}}</a></li>
+                    <li class="breadcrumb-item active">{{product.name}}</li>
+                </ol>
+            </nav>
+
+            <hr>
+
+            <div class="d-flex" style="align-items: last baseline;">
+                <div class="fs-4 text-primary fw-bold">${{productService.getDiscount(productId) | number : '1.1-1'}}</div>
+
+                @if (product.off > 0) {
+                    <div class="fs-6 text-dark ms-2 text-decoration-line-through me-2">${{product.price | number : '1.1-1'}}</div>
+                    <span class="badge bg-success">Oferta -{{product.off * 100}}%</span>
+                }
+            </div>
+
+            <div>
+                <p>{{product.description}}</p>
+            </div>
+
+            <hr>
+
+            <ul class="list-style-none p-0 fs-5">
+                <li class="mb-2">
+                    @switch (productService.getStockLevel(productId)) {
+                        @case ('low') { <i class="text-danger me-3 fa-solid fa-xmark"></i>Sin stock }
+                        @case ('medium') { <i class="text-warning me-3 fa-solid fa-check"></i>Poco stock }
+                        @case ('high') { <i class="text-success me-3 fa-solid fa-check"></i>En stock }
+                    }
+                    
+                </li>
+                <li class="mb-2"><i class="text-success me-3 fa-solid fa-truck-fast"></i>Envios a todo el pais</li>
+                <li class="mb-2"><i class="text-success me-3 fa-solid fa-shield"></i>Garantia de 90 dias</li>
+            </ul>
+
+            <hr>
+
+            <button [disabled]="product.stock < 1" (click)="cart.addProduct(product)" class="btn btn-primary me-1" type="button">
+                <i class="fa-solid fa-cart-shopping me-1"></i>Agregar al carrito
+            </button>
+            <button (click)="copyURL()" class="btn btn-secondary">
+                <i class="fa-solid fa-copy"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-3">
+    <hr>
+    <h3 class="text-center">Especificaciones del producto</h3>
+    <p>
+        
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quaerat atque, eos et quibusdam sapiente obcaecati consectetur. Ea in expedita, id repudiandae aspernatur laudantium ullam assumenda molestias eaque itaque eos officiis!
+    </p>
+</div>

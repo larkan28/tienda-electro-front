@@ -1,0 +1,25 @@
+<div class="modal fade text-start" tabindex="-1" id="removeAddressModal">
+    <div class="modal-dialog modal-dialog-centered modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fa-solid fa-triangle-exclamation text-danger"></i>
+                    Borrar domicilio
+                </h5>
+                <button #closeRemoveAddress type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="mb-3 text-wrap">
+                    ¿Esta seguro que desea eliminar este domicilio?
+                </div>
+
+                <button class="btn btn-primary me-2" data-bs-dismiss="modal">
+                    No, cancelar
+                </button>
+                <button class="btn btn-danger" (click)="remove()">
+                    Si, eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

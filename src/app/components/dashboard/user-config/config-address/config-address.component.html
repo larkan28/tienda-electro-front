@@ -1,0 +1,61 @@
+<div class="row rows-col-2 mb-2 g-2">
+    @for (address of addresses; track $index) {
+        <div class="col-md-12">
+            <div class="card" [class]="cardSelected(address.id)" (click)="selectAddress(address.id)">
+                <div class="card-header">
+                    <div class="row d-flex align-items-center">
+                        <div class="col">
+                            <i class="fa-solid fa-location-dot"></i>
+                            {{address.name}}
+                        </div>
+                        <div class="col text-end">
+                            <button (click)="editingId = address.id; child?.showModal()" class="btn btn-primary btn-sm me-1" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </button>
+                            <button (click)="editingId = address.id"class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#removeAddressModal">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <ul class="list-style-none p-0 m-0">
+                        <li>
+                            <strong class="text-primary">Nombre:</strong> {{address.firstName}} {{address.lastName}}
+                        </li>
+                        <li>
+                            <strong class="text-primary">Código postal:</strong> {{address.zipCode}}
+                        </li>
+                        <li>
+                            <strong class="text-primary">Calle:</strong> {{address.street}} {{address.streetNumber}}
+                        </li>
+                        <li>
+                            <strong class="text-primary">Telefono:</strong> {{address.phone}}
+                        </li>
+                    </ul>
+                </div>
+                @if (currentId === address.id) {
+                    <div class="card-footer text-bg-primary text-center">
+                        Seleccionado
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+@if (addresses.length < 1) {
+    <div class="text-center mb-2">
+        No hay ningún domicilio registrado
+    </div>
+}
+
+<div class="text-center">
+    <button (click)="editingId = 0; child?.showModal()" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+        <i class="fa-solid fa-plus"></i>
+        Agregar domicilio
+    </button>
+</div>
+
+<app-address-add/>
+<app-address-remove/>

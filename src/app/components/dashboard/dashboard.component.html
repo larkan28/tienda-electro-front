@@ -1,0 +1,29 @@
+<div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-user"></i>
+        Mi cuenta
+    </button>
+    <ul class="dropdown-menu">
+        <li>
+            <a class="dropdown-item" routerLink="/user/config">
+                <i class="fa-solid fa-gear"></i>
+                Configuración
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item" routerLink="/user/orders">
+                <i class="fa-solid fa-list-check"></i>
+                Mis pedidos
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li>
+            <a class="dropdown-item" href="#" (click)="$event.preventDefault(); logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Cerrar sesión
+            </a>
+        </li>
+    </ul>
+</div>

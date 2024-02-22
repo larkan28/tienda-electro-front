@@ -1,0 +1,110 @@
+[
+    {
+        "id": 0,
+        "name": "Macbook",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "cpu",
+        "brand": "amd",
+        "stockMax": 10,
+        "stock": 10,
+        "price": 15000, 
+        "off": 0.15,
+        "imgs": [ "product01.png" ]
+    },
+    {
+        "id": 1,
+        "name": "Auriculares Negros",  
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "cpu",
+        "brand": "amd",
+        "stockMax": 10,
+        "stock": 5,
+        "price": 1000,
+        "off": 0.15,
+        "imgs": [ "product02.png" ] 
+    },
+    {
+        "id": 2,
+        "name": "Laptop gris",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "cpu",
+        "brand": "intel",
+        "stockMax": 10,
+        "stock": 5,
+        "price": 500, 
+        "off": 0,
+        "imgs": [ "product03.png" ] 
+    },
+    {
+        "id": 3,
+        "name": "Tablet",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "cpu",
+        "brand": "amd",
+        "stockMax": 10,
+        "stock": 2,
+        "price": 2500, 
+        "off": 0,
+        "imgs": [ "product04.png" ] 
+    },
+    {
+        "id": 4,
+        "name": "Auriculares grises",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "cpu",
+        "brand": "intel",
+        "stockMax": 10,
+        "stock": 0,
+        "price": 5000, 
+        "off": 0,
+        "imgs": [ "product05.png" ] 
+    },
+    {
+        "id": 5,
+        "name": "Laptop roja",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "gpu",
+        "brand": "amd",
+        "stockMax": 10,
+        "stock": 5,
+        "price": 3000, 
+        "off": 0,
+        "imgs": [ "product06.png" ] 
+    },
+    {
+        "id": 6,
+        "name": "Samsung",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "gpu",
+        "brand": "amd",
+        "stockMax": 10,
+        "stock": 0,
+        "price": 7500, 
+        "off": 0,
+        "imgs": [ "product07.png" ] 
+    },
+    {
+        "id": 7,
+        "name": "Laptop negra",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "gpu",
+        "brand": "nvidia",
+        "price": 20000,
+        "stockMax": 10,
+        "stock": 2,
+        "off": 0,
+        "imgs": [ "product08.png" ] 
+    },
+    {
+        "id": 8,
+        "name": "Camara",
+        "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae error fugit minus ipsum consequatur corrupti laborum aliquid dicta? Quibusdam dicta quaerat atque sint cum provident commodi repellat at ad. Debitis.",
+        "category": "gpu",
+        "brand": "nvidia",
+        "stockMax": 10,
+        "stock": 10,
+        "price": 12500, 
+        "off": 0,
+        "imgs": [ "product09.png" ] 
+    }
+]

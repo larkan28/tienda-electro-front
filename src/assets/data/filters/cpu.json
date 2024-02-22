@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Marca",
+        "group": "brand",
+        "options": [
+            { "title": "AMD", "value": "amd" },
+            { "title": "Intel", "value": "intel" }
+        ],
+        "property": "brand"
+    },
+    {
+        "title": "Nucleos",
+        "group": "cores",
+        "options": [
+            { "title": "2", "value": "2" },
+            { "title": "4", "value": "4" },
+            { "title": "6", "value": "6" }
+        ],
+        "property": "cores"
+    },
+    { "title": "Precio minimo", "group": "priceMin", "property": "price", "operation": ">=" },
+    { "title": "Precio maximo", "group": "priceMax", "property": "price", "operation": "<=" }
+]

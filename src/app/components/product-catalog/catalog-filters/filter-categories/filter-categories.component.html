@@ -1,0 +1,23 @@
+<ul class="list-style-none m-0 p-0 user-select-none">
+    @for (category of product.categories; track category.id; let i = $index) {
+        <li class="cursor-pointer p-2" [class]="isActive(category.group)" [routerLink]="category.link" data-bs-toggle="collapse" [attr.data-bs-target]="'#subMenu' + i">
+            <div class="cat-title">
+                {{category.title}}
+            </div>
+        </li>
+
+        @if (category.submenu) {
+            <div class="collapse" [id]="'subMenu' + i">
+                <ul class="list-style-none m-0 p-0">
+                    @for (menu of category.submenu; track $index) {
+                        <li class="cursor-pointer p-2" [class]="isActive(menu.group)" [routerLink]="menu.link">
+                            <div class="cat-title ms-3">
+                                {{menu.title}}
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    }
+</ul>

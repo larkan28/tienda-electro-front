@@ -1,0 +1,139 @@
+<div class="modal fade text-start" tabindex="-1" id="addAddressModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    @if (isEditing) {
+                        <i class="fa-solid fa-pen-to-square text-primary"></i>
+                        Editar domicilio
+                    }
+                    @else {
+                        <i class="fa-solid fa-plus text-success"></i>
+                        Agregar domicilio
+                    }
+                </h5>
+                <button #closeAddAddress type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addressForm" (ngSubmit)="submitAddress()" formValid>
+                    <div class="row g-2 mb-2">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input formValidInput type="text" class="form-control" formControlName="firstName" id="addressFirstName" placeholder="Nombre">
+                                <label for="addressFirstName">Nombre</label>
+                                <form-valid-feedback class="invalid-feedback" control="firstName"/>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input formValidInput type="text" class="form-control" formControlName="lastName" id="addressLastName" placeholder="Apellido">
+                                <label for="addressLastName">Apellido</label>
+                                <form-valid-feedback class="invalid-feedback" control="lastName"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-floating mb-2">
+                        <input formValidInput type="text" class="form-control" formControlName="phone" id="addressPhone" placeholder="Telefono">
+                        <label for="addressPhone">Telefono</label>
+                        <form-valid-feedback class="invalid-feedback" control="phone"/>
+                    </div>
+    
+                    <div class="row g-2 mb-2">
+                        <div class="col-md-8">
+                            <div class="form-floating">
+                                <input formValidInput type="text" class="form-control" formControlName="street" id="addressStreet" placeholder="Calle">
+                                <label for="addressStreet">Calle</label>
+                                <form-valid-feedback class="invalid-feedback" control="street"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input formValidInput type="number" class="form-control" formControlName="streetNumber" id="addressStreetNumber" placeholder="Altura">
+                                <label for="addressStreetNumber">Altura</label>
+                                <form-valid-feedback class="invalid-feedback" control="streetNumber"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-2 mb-2">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input formValidInput type="text" class="form-control" formControlName="department" id="addressDepartment" placeholder="Departamento">
+                                <label for="addressDepartment">Departamento</label>
+                                <form-valid-feedback class="invalid-feedback" control="department"/>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input formValidInput type="number" class="form-control" formControlName="departmentFloor" id="addressDepartmentFloor" placeholder="Piso">
+                                <label for="addressDepartmentFloor">Piso</label>
+                                <form-valid-feedback class="invalid-feedback" control="departmentFloor"/>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input formValidInput type="number" class="form-control" formControlName="departmentTower" id="addressDepartmentTower" placeholder="Torre">
+                                <label for="addressDepartmentTower">Torre</label>
+                                <form-valid-feedback class="invalid-feedback" control="departmentTower"/>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-floating mb-2">
+                        <select formValidInput class="form-select" formControlName="state" id="addressState">
+                            <option [value]="null" selected>Seleccionar</option>
+                            @for (state of states; track $index) {
+                                <option [value]="state.id">{{state.nombre}}</option>
+                            }
+                        </select>
+                        <label for="addressState">Provincia</label>
+                        <form-valid-feedback class="invalid-feedback" control="state"/>
+                    </div>
+    
+                    <div class="row g-2 mb-2">
+                        <div class="col-md-8">
+                            <div class="form-floating">
+                                <select formValidInput class="form-select" formControlName="city" id="addressCity">
+                                    <option [value]="null" selected>Seleccionar</option>
+                                    @for (city of cities; track $index) {
+                                        <option [value]="city.id">{{city.nombre}}</option>
+                                    }
+                                </select>
+                                <label for="addressCity">Ciudad</label>
+                                <form-valid-feedback class="invalid-feedback" control="city"/>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input formValidInput type="email" class="form-control" formControlName="zipCode" id="addressZipCode" placeholder="Codigo postal">
+                                <label for="addressZipCode">Codigo postal</label>
+                                <form-valid-feedback class="invalid-feedback" control="zipCode"/>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="form-floating mb-2">
+                        <input formValidInput type="text" class="form-control" formControlName="name" id="addressName" placeholder="Guardar como">
+                        <label for="addressName">Guardar como</label>
+                        <form-valid-feedback class="invalid-feedback" control="name"/>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="reset" class="btn btn-primary" data-bs-dismiss="modal">
+                            Cancelar
+                        </button>
+                        <button type="submit" class="btn btn-success" [disabled]="!addressForm.dirty || addressForm.invalid || submitting">
+                            @if (isEditing) {
+                                Guardar cambios
+                            }
+                            @else {
+                                Agregar
+                            }
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

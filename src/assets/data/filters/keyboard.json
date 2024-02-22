@@ -1,0 +1,24 @@
+[
+    {
+        "title": "Marca",
+        "group": "brand",
+        "options": [
+            { "id": 0, "title": "Genius", "value": "genius" },
+            { "id": 1, "title": "Logitech", "value": "logitech" }
+        ],
+        "property": "brand",
+        "operation": "=="
+    },
+    {
+        "title": "Mecanico",
+        "group": "mechanical",
+        "options": [
+            { "id": 0, "title": "Si", "value": "true" },
+            { "id": 1, "title": "No", "value": "false" }
+        ],
+        "property": "mechanical",
+        "operation": "=="
+    },
+    { "title": "Precio minimo", "group": "priceMin", "property": "price", "operation": ">=" },
+    { "title": "Precio maximo", "group": "priceMax", "property": "price", "operation": "<=" }
+]

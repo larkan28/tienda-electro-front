@@ -1,0 +1,29 @@
+<section id="cart">
+    <div class="container my-3">
+        @if (cart.empty) {
+            <div class="text-center">
+                <h4>Tu carrito esta vacío</h4>
+                <p class="mb-4">Primero debes agregar algun producto al carrito</p>
+                <button routerLink="/home" class="btn btn-primary">Volver al inicio</button>
+            </div>
+        }
+        @else {
+            <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                    <app-cart-shipping/>
+                </div>
+                <div class="col-md-6">
+                    <app-cart-products/>
+                </div>
+                <div class="col-md-12">
+                    <app-cart-payment/>
+                </div>
+                <div class="col-md-12 text-end">
+                    <button (click)="finishOrder()" class="btn btn-primary btn-lg" [disabled]="!valid">
+                        Finalizar compra
+                    </button>
+                </div>
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,36 @@
+<section id="banners" class="mb-3">
+    <swiper-container pagination="true">
+        @for (banner of banners; track $index) {
+            <swiper-slide>
+                <a href="#"><img class="w-100 h-100" src="{{banner}}"></a>
+            </swiper-slide>
+        }
+    </swiper-container>
+</section>
+
+<section id="news" class="mb-3">
+    <div class="container">
+        <h4>Productos destacados</h4>
+        <hr>
+
+        <swiper-container slides-per-view="4" navigation="true" space-between="10" rewind="true" [breakpoints]="breakpointsOne">
+            @for (product of product.products; track $index) {
+                @if (product.stock > 0) {
+                    <swiper-slide>
+                        <app-product-card [product]="product"/>
+                    </swiper-slide>
+                }
+            }
+        </swiper-container>
+    </div>
+</section>
+
+<section id="sponsors" class="mb-3">
+    <swiper-container slides-per-view="4" [breakpoints]="breakpointsTwo">
+        @for (item of brands; track $index) {
+            <swiper-slide>
+                <img class="d-block mx-auto" src="{{item}}" style="max-width: 230px; max-height: 95px;">
+            </swiper-slide>
+        }
+    </swiper-container>
+</section>

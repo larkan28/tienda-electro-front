@@ -1,0 +1,94 @@
+<h4>
+    <i class="text-success fa-solid fa-circle-check"></i>
+    Metodo de pago
+</h4>
+<hr>
+
+<div class="row g-2">
+    <div class="col-auto">
+        <div class="fs-5 mb-2">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="methodBank" [value]="payment.BankTransfer" [(ngModel)]="paymentId">
+                <label class="form-check-label" for="methodBank">
+                    <i class="fa-solid fa-building-columns"></i>
+                    Transferencia bancaria
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="methodCard" [value]="payment.CreditCard" [(ngModel)]="paymentId">
+                <label class="form-check-label" for="methodCard">
+                    <i class="fa-solid fa-credit-card"></i>
+                    Tarjeta de credito
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="paymentMethod" id="methodPaypal" [value]="payment.Paypal" [(ngModel)]="paymentId">
+                <label class="form-check-label" for="methodPaypal">
+                    <i class="fa-brands fa-cc-paypal"></i>
+                    PayPal
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        @if (paymentId === payment.CreditCard) {
+            <div class="border rounded p-3 bg-primary bg-opacity-10">
+                <h5 class="text-center mb-3">Datos de tarjeta:</h5>
+
+                <form [formGroup]="cardForm" formValid>
+                    <div class="row g-2">
+                        <div class="col-md-12">
+                            <label for="cardNumber" class="form-label">Número de tarjeta</label>
+                            <input formValidInput type="text" class="form-control" formControlName="number" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="20" autocomplete="off" credit-card>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="cardFullname" class="form-label">Nombre completo</label>
+                            <input formValidInput type="text" class="form-control" formControlName="fullName" id="cardFullname" placeholder="Ej. Juan Perez" autocomplete="off">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cardExpMonth" class="form-label">Fecha de expiración</label>
+                            <div class="d-flex">
+                                <input formValidInput type="text" class="form-control me-1" formControlName="expMonth" id="cardExpMonth" placeholder="Mes" maxlength="2" autocomplete="off">
+                                <input formValidInput type="text" class="form-control ms-1" formControlName="expYear" id="cardExpYear" placeholder="Año" maxlength="2" autocomplete="off">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cardCVV" class="form-label">Código de seguridad</label>
+                            <input formValidInput type="text" class="form-control" formControlName="cvv" id="cardCVV" placeholder="CVV" maxlength="3" autocomplete="off">
+                        </div>
+                    </div>
+                </form>
+
+                <div class="text-center d-flex align-items-center justify-content-center">
+                    Aceptamos tarjeta:
+                    <div class="fs-3 ms-1">
+                        <i class="fa-brands fa-cc-visa me-1"></i>
+                        <i class="fa-brands fa-cc-mastercard me-1"></i>
+                        <i class="fa-brands fa-cc-discover"></i>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-6">
+                <ul class="p-0 m-0 list-style-none text-start">
+                    <li>Subtotal:</li>
+                    <li>Envio:</li>
+                    <li>Descuento:</li>
+                </ul>
+            </div>
+            <div class="col-6">
+                <ul class="p-0 m-0 list-style-none text-end">
+                    <li>${{cart.total | number: '1.1-1'}}</li>
+                    <li>-</li>
+                    <li>-</li>
+                </ul>
+            </div>
+        </div>
+
+        <hr class="my-2">
+        <h4 class="text-end">${{cart.total | number: '1.1-1'}}</h4>
+    </div>
+</div>

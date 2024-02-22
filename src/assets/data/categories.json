@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "title": "Procesadores", 
+        "group": "cpu", 
+        "link": "/products/cpu" 
+    },
+    {
+        "id": 1,
+        "title": "Placas de video", 
+        "group": "gpu", 
+        "link": "/products/gpu" 
+    },
+    {
+        "id": 2,
+        "title": "Accesorios",
+        "submenu": [ 
+            { "title": "Mouses", "group": "mouse", "link": "/products/mouse" },
+            { "title": "Teclados", "group": "keyboard", "link": "/products/keyboard" }
+        ]
+    }
+]

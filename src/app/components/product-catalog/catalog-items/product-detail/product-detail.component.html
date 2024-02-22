@@ -1,0 +1,43 @@
+<div class="card mb-2">
+    <div class="row g-0">
+        <div class="col-md-3 text-center">
+            <img routerLink="/product/{{product.id}}" src="assets/imgs/products/{{product.imgs[0]}}" class="img-fluid rounded-start cursor-pointer" style="max-width: 150px;">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <div class="row g-0">
+                    <div class="col-auto">
+                        <h5 class="cursor-pointer" routerLink="/product/{{product.id}}">
+                            {{product.name}}
+                        </h5>
+                    </div>
+                    <div class="col-auto ms-2">
+                        @if (product.off > 0) {
+                            <span class="badge bg-success">Oferta -{{product.off * 100}}%</span>
+                        }
+                        @switch (productService.getStockLevel(product.id)) {
+                            @case ('medium') { <span class="badge bg-warning ms-1">Poco stock</span> }
+                            @case ('low') { <span class="badge bg-danger ms-1">Sin stock</span> }
+                        }
+                    </div>
+                </div>
+                
+                <div class="d-flex mb-3" style="align-items: last baseline;">
+                    <div class="fs-5 text-primary fw-bold">
+                        ${{productService.getDiscount(product.id) | number : '1.1-1'}}
+                    </div>
+
+                    @if (product.off > 0) {
+                        <div class="fs-6 text-dark ms-2 text-decoration-line-through">
+                            ${{product.price | number : '1.1-1'}}
+                        </div>
+                    }
+                </div>
+
+                <button [disabled]="product.stock < 1" (click)="cart.addProduct(product)" class="btn btn-primary">
+                    Agregar al carrito
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

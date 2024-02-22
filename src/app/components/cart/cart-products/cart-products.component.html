@@ -1,0 +1,37 @@
+<h4>
+    <i class="text-success fa-solid fa-list-check"></i>
+    Lista de productos
+</h4>
+<hr>
+
+<div class="row g-2">
+    @for (item of cart.products; track item.product; let i = $index; let l = $last;) {
+        <div class="col-12 border rounded px-3">
+            <div class="row g-2 d-flex align-items-center text-center">
+                <div class="col-2">
+                    <img style="max-width: 100px;" src="assets/imgs/products/{{item.product.imgs[0]}}">
+                </div>
+                <div class="col-6">
+                    <div class="fs-6 fw-bold cursor-pointer text-truncate" routerLink="/product/{{item.product.id}}">{{item.product.name}}</div>
+                    <div class="text-primary fs-6">${{cart.getProductPrice(i) | number: '1.1-1'}}</div>
+                </div>
+                <div class="col-3">
+                    <div class="input-group">
+                        <span (click)="cart.setProductQuantity(i, -1)" class="input-group-text cursor-pointer p-2" style="font-size: 12px;">
+                            <i class="fa-solid fa-minus"></i>
+                        </span>
+                        <input type="text" class="form-control text-center" [value]="item.quantity" readonly style="max-width: 45px;">
+                        <span (click)="cart.setProductQuantity(i, 1)" class="input-group-text cursor-pointer p-2" style="font-size: 12px;">
+                            <i class="fa-solid fa-plus"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-1">
+                    <button (click)="cart.removeProduct(i)" class="btn btn-outline-danger border-0">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    }
+</div>

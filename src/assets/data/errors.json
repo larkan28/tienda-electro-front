@@ -1,0 +1,8 @@
+[
+    { "error": "required", "message": "Campo requerido" },
+    { "error": "email", "message": "El e-mail es incorrecto" },
+    { "error": "minlength", "message": "El campo debe tener minimo <length> caracteres" },
+    { "error": "duplicated", "message": "El e-mail ya existe o esta en uso" },
+    { "error": "passwordNotMatch", "message": "Las contraseñas no coinciden" },
+    { "error": "selectedNone", "message": "Debes selecionar una opción" }
+]

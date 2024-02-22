@@ -1,0 +1,30 @@
+<div class="container mb-2 border rounded">
+    <div class="row align-items-center py-2">
+        <div class="col-md-8" [class]="{ 'badges-mb': catalog.filterForm.dirty }">
+            <div class="d-inline mb-3">
+                @for (badge of catalog.getBadges(); track $index) {
+                    <span class="badge text-bg-primary me-1">
+                        {{badge.title}}: {{badge.option}}
+                        <i (click)="catalog.removeFilter(badge.control)" class="ms-1 cursor-pointer fa-solid fa-xmark"></i>
+                    </span>
+                }
+            </div>
+        </div>
+        <div class="col-md-4 sorting">
+            <div class="d-flex" style="align-items: last baseline;">
+                <label for="sorting">Ordenar:</label>
+                <select id="sorting" class="form-select form-select-sm border-0" (change)="product.sort($event.target)">
+                    <option value="null" selected>Seleccionar</option>
+                    <option value="name">Nombre</option>
+                    <option value="low-price">Menor Precio</option>
+                    <option value="high-price">Mayor Precio</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container p-0">
+    @for (product of product.products | productFilter: catalog.getPipeFilters(); track $index) {
+        <app-product-detail [product]="product"></app-product-detail>
+    }
+</div>
